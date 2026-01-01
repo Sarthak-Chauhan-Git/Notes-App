@@ -1,6 +1,15 @@
 {
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "dotenv": "^17.2.3",
+    "env": "^0.0.2",
+    "express": "^5.1.0",
+    "got": "^14.6.5",
+    "mongoose": "^9.0.0",
+    "nodemon": "^3.1.11",
+    "react": "^19.2.0"
+  },
+  "scripts": {
+    "dev": "nodemon --legacy-watch server.js"
   }
 }
