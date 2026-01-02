@@ -1,20 +1,23 @@
 import Notes from "./Notes";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Notepad() {
-  const notes = [
-    {
-      title: "Title1",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio maiores eos, repellat quo reprehenderit, commodi esse temporibus enim nostrum necessitatibus earum voluptatem nobis, aspernatur eius expedita! Consequuntur, qui laboriosam! Reiciendis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio maiores eos, repellat quo reprehenderit, commodi esse temporibus enim nostrum necessitatibus earum voluptatem nobis, aspernatur eius expedita! Consequuntur, qui laboriosam! Reiciendis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio maiores eos, repellat quo reprehenderit, commodi esse temporibus enim nostrum necessitatibus earum voluptatem nobis, aspernatur eius expedita! Consequuntur, qui laboriosam! Reiciendis?",
-    },
-    { content: "hi2" },
-    { title: "Title2", content: "hi3" },
-    { title: "Title4", content: "hi5" },
-  ];
+  const [allNotes, setallNotes] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/readNote")
+      .then((res) => {
+        setallNotes(res.data);
+        console.log("notes data fetched from backend");
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <>
       <ul className="notes">
-        {notes.map((note) => (
+        {allNotes.map((note) => (
           <li>
             <Notes note={note}></Notes>
           </li>
