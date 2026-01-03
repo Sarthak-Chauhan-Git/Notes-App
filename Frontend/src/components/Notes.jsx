@@ -1,9 +1,9 @@
 function Notes({ note }) {
   return (
-    <div className="note">
+    <li className="note">
       <h3>{note.title || "Untitled"}</h3>
       <p>{note.content}</p>
-    </div>
+    </li>
   );
 }
 

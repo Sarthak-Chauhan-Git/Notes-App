@@ -124,6 +124,58 @@
   border-bottom: 1px solid white;
 }
 
+#sidebar .addNote {
+  z-index: 2;
+  position: absolute;
+  width: 15rem;
+  height: 15rem;
+  background-color: #feeac9;
+  padding: 1rem;
+  border-radius: 25px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+  display: none;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#sidebar .addNote.show {
+  display: block;
+  opacity: 1;
+}
+
+#sidebar .addNote form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#sidebar .addNote #addTitle {
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 18.72px;
+  font-weight: 400;
+}
+
+#sidebar .addNote #addContent {
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  overflow: auto;
+  resize: none;
+  height: 100%;
+}
+
+.addNote #addContent::-webkit-scrollbar {
+  width: 4px;
+  background: transparent;
+}
+
 #notepad {
   padding: 1rem 2rem;
   display: flex;
@@ -142,7 +194,7 @@
 
 .note {
   border-radius: 10%;
-  padding: 1rem 0.75rem;
+  padding: 1rem 1rem;
   margin: 1rem;
   width: 15rem;
   height: 15rem;

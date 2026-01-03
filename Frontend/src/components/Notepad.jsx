@@ -1,26 +1,19 @@
 import Notes from "./Notes";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useContext, useEffect } from "react";
+import { AppContext } from "../context/AppContext";
 
 function Notepad() {
-  const [allNotes, setallNotes] = useState([]);
+  const { allNotes, fetchNotes } = useContext(AppContext);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/readNote")
-      .then((res) => {
-        setallNotes(res.data);
-        console.log("notes data fetched from backend");
-      })
-      .catch((err) => console.error(err));
+    fetchNotes();
   }, []);
 
   return (
     <>
       <ul className="notes">
         {allNotes.map((note) => (
-          <li>
-            <Notes note={note}></Notes>
-          </li>
+          <Notes note={note} key={note._id}></Notes>
         ))}
       </ul>
     </>

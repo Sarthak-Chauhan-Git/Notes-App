@@ -48,7 +48,18 @@ app.get("/readNote", async (req, res) => {
 // add data
 app.post("/addNote", (req, res) => {
   console.log("Add request recieved");
-  res.send("Added!");
+  try {
+    let newNote = new NoteModel({
+      title: req.body.title,
+      content: req.body.content,
+    });
+    newNote.save();
+    console.log("Note added");
+    res.status(200).send("Note saved!");
+  } catch (err) {
+    console.error("Add note error: ", err);
+    return res.status(500).send("Failed to add data to database!");
+  }
 });
 
 // update data
