@@ -218,6 +218,25 @@
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
+.noteHead {
+  display: flex;
+  justify-content: space-between;
+}
+
+.noteHead button {
+  margin: 0px 0.5rem;
+  opacity: 0.2;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.noteHead button:hover {
+  opacity: 1;
+  color: rgb(209, 0, 0);
+}
+
 .note p {
   font-size: 12px;
 }

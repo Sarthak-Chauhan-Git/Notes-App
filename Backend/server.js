@@ -69,9 +69,18 @@ app.put("/updateNote", (req, res) => {
 });
 
 // dalete data
-app.delete("/deleteNote", (req, res) => {
+app.delete("/deleteNote/:id", async (req, res) => {
   console.log("Delete request recieved");
-  res.send("Deleted!");
+  let id = req.params.id;
+  try {
+    let thisnote = await NoteModel.findByIdAndDelete(id);
+    console.log(id, " -> ", thisnote);
+    console.log("Note added");
+    res.status(200).send("Note deleted!");
+  } catch (err) {
+    console.error("Delete note error: ", err);
+    return res.status(500).send("Failed to delete data to database!");
+  }
 });
 
 // server connection

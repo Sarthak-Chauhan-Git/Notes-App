@@ -23,6 +23,8 @@ function AddNote({ isOpen, onSave }) {
     onSave();
     fetchNotes();
     console.log("New note creation request send!");
+    setaddcontent("");
+    setaddtitle("");
   };
 
   return (
