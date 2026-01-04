@@ -1,7 +1,6 @@
 import Todo from "./Todo";
 import { useState, useEffect } from "react";
 import AddNote from "./AddNote";
-// import { Route, Routes} from "react-router-dom";
 
 function Sidebar() {
   const todos = [
@@ -28,7 +27,7 @@ function Sidebar() {
       <div className="todo">
         <h3>Today's Schedule</h3>
         {todos.map((todo) => (
-          <Todo todo={todo}></Todo>
+          <Todo todo={todo} key={todo.time}></Todo>
         ))}
       </div>
     </div>

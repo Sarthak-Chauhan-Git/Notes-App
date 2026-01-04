@@ -78,25 +78,25 @@
 }
 
 #sidebar button {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease-in-out;
   width: 100%;
   padding: 0.5rem;
   margin: 0.5rem 0rem;
   border-radius: 10px;
-  background-color: #f4b342;
-  color: white;
-  font-weight: 100;
-  font-size: medium;
-  border: 1px solid #f4b342;
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3),
-    -5px -5px 20px rgba(255, 255, 255, 0.5) inset;
+  color: #fff;
 }
 
 #sidebar button:hover {
-  background-color: white;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3),
+    -5px -5px 20px rgba(255, 255, 255, 0.5) inset;
   font-weight: 600;
-  color: #de1a58;
 }
 
 #sidebar hr {
@@ -129,7 +129,7 @@
   position: absolute;
   width: 15rem;
   height: 15rem;
-  background-color: #feeac9;
+  background-color: white;
   padding: 1rem;
   border-radius: 25px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
@@ -139,6 +139,11 @@
   display: none;
   opacity: 0;
   transition: all 0.3s ease-in-out;
+}
+
+#sidebar #saveNote {
+  color: black;
+  border: 1px solid rgba(186, 185, 185, 0.3);
 }
 
 #sidebar .addNote.show {
@@ -157,7 +162,7 @@
   background: transparent;
   border: none;
   outline: none;
-  font-size: 18.72px;
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -198,8 +203,10 @@
   margin: 1rem;
   width: 15rem;
   height: 15rem;
-  background-color: #feeac9;
-  cursor: pointer;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  cursor: text;
   perspective: 1000px;
   overflow: auto;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -207,7 +214,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.note::-webkit-scrollbar {
+.note .content::-webkit-scrollbar {
   width: 4px;
   background: transparent;
 }
@@ -221,6 +228,25 @@
 .noteHead {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.noteHead .title {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.note .content {
+  background: transparent;
+  border: none;
+  outline: none;
+  overflow: auto;
+  resize: none;
+  height: 80%;
+  width: 100%;
 }
 
 .noteHead button {
@@ -239,4 +265,22 @@
 
 .note p {
   font-size: 12px;
+}
+
+.noteHead .edit-btn {
+  position: absolute;
+  z-index: 2;
+  right: 0.25rem;
+  border: 1px solid orange;
+  background-color: #f4b342;
+  opacity: 1;
+  color: white;
+  padding: 2px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.noteHead .edit-btn:hover {
+  background-color: white;
+  border: 1px solid white;
 }

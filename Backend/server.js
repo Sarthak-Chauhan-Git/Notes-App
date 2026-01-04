@@ -63,12 +63,25 @@ app.post("/addNote", (req, res) => {
 });
 
 // update data
-app.put("/updateNote", (req, res) => {
+app.put("/updateNote", async (req, res) => {
   console.log("Update request recieved");
-  res.send("Updated!");
+  try {
+    let note = req.body.note;
+    let updatedNote = await NoteModel.findByIdAndUpdate(
+      note._id,
+      { $set: { title: note.title, content: note.content } },
+      { new: true }
+    );
+    console.log(note._id, " -> ", updatedNote);
+    console.log("Note updated");
+    res.status(200).send("Note updated!");
+  } catch (err) {
+    console.error("Update note error: ", err);
+    return res.status(500).send("Failed to update data to database!");
+  }
 });
 
-// dalete data
+// delete data
 app.delete("/deleteNote/:id", async (req, res) => {
   console.log("Delete request recieved");
   let id = req.params.id;

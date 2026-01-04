@@ -32,6 +32,7 @@ function AddNote({ isOpen, onSave }) {
       <div className={`addNote ${isOpen ? "show" : ""}`}>
         <form action="/addnote">
           <input
+            className="title"
             id="addTitle"
             type="text"
             placeholder="Title"
@@ -39,6 +40,7 @@ function AddNote({ isOpen, onSave }) {
             value={addtitle}
           ></input>
           <textarea
+            className="content"
             id="addContent"
             placeholder="Content"
             onChange={handleaddcontent}
