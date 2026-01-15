@@ -1,14 +1,14 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <div id="navbar">
       <h1 className="edu-nsw-act-cursive">Take Notes</h1>
-      <div className="menu">
+      <div id="menu">
         <div className="login">
-          <button>Login</button>
-        </div>
-        <hr />
-        <div className="signup">
-          <button>Signup</button>
+          <Link to="/">
+            <button>Logout</button>
+          </Link>
         </div>
       </div>
     </div>

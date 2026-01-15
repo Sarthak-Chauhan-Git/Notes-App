@@ -1,20 +1,19 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Notepad from "./components/Notepad";
-import Sidebar from "./components/Sidebar";
 import { AppProvider } from "./context/AppContext";
+import LoginPage from "./components/LoginPage";
+import Home from "./Home";
 
 function App() {
   return (
-    <AppProvider>
-      <div id="app-structure">
-        <Navbar></Navbar>
-        <Sidebar></Sidebar>
-        <div id="notepad">
-          <Notepad></Notepad>
-        </div>
-      </div>
-    </AppProvider>
+    <BrowserRouter>
+      <AppProvider>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/app" element={<Home />} />
+        </Routes>
+      </AppProvider>
+    </BrowserRouter>
   );
 }
 
